@@ -38,16 +38,16 @@ public class Planilha extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Tabela1 = new javax.swing.JTable();
+        jtTabela = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        busca = new javax.swing.JButton();
+        atualizar = new javax.swing.JButton();
+        remover = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
         setClosable(true);
 
-        Tabela1.setModel(new javax.swing.table.DefaultTableModel(
+        jtTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -55,27 +55,27 @@ public class Planilha extends javax.swing.JInternalFrame {
                 "Nome", "Telefone", "CPF", "Idade", "Data", "Pagamento", "Serviços", "Valor", "Total", "Observações"
             }
         ));
-        jScrollPane1.setViewportView(Tabela1);
-        if (Tabela1.getColumnModel().getColumnCount() > 0) {
-            Tabela1.getColumnModel().getColumn(7).setHeaderValue("Valor");
+        jScrollPane1.setViewportView(jtTabela);
+        if (jtTabela.getColumnModel().getColumnCount() > 0) {
+            jtTabela.getColumnModel().getColumn(7).setHeaderValue("Valor");
         }
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("PLANILHA");
 
-        jButton1.setText("Busca");
+        busca.setText("Busca");
 
-        jButton2.setText("Atualizar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        atualizar.setText("Atualizar");
+        atualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                atualizarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Remover");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        remover.setText("Remover");
+        remover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                removerActionPerformed(evt);
             }
         });
 
@@ -89,13 +89,13 @@ public class Planilha extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jButton1)
+                .addComponent(busca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102)
-                .addComponent(jButton2)
+                .addComponent(atualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(remover)
                 .addGap(21, 21, 21))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(317, 317, 317)
@@ -108,9 +108,9 @@ public class Planilha extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
+                    .addComponent(busca)
+                    .addComponent(atualizar)
+                    .addComponent(remover)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,29 +136,40 @@ public class Planilha extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+//            if (jtTabela.getSelectedRow() != -1){
+//            jtTabela.setValueAt(nome.TelaDeCadastro.getText(),jtTabela.getSelectedRow() , 0);
+//            jtTabela.setValueAt(telefone.getText(),jtTabela.getSelectedRow() , 1);
+//            jtTabela.setValueAt(cpf.getText(),jtTabela.getSelectedRow() , 2);
+//            jtTabela.setValueAt(idade.getText(),jtTabela.getSelectedRow() , 3);
+//            jtTabela.setValueAt(data.getText(),jtTabela.getSelectedRow() , 4);
+//            jtTabela.setValueAt(pagamento.getSelectedItem(),jtTabela.getSelectedRow() , 5);
+//            jtTabela.setValueAt(servicos.getSelectedItem(),jtTabela.getSelectedRow() , 6);
+//            jtTabela.setValueAt(Valor.getText(),jtTabela.getSelectedRow() , 7);
+//            jtTabela.setValueAt(Total.getText(),jtTabela.getSelectedRow() , 8);
+//            jtTabela.setValueAt(obs.getText(),jtTabela.getSelectedRow() , 9);  
+//        }
+    }//GEN-LAST:event_atualizarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
         // TODO add your handling code here:
-          if(Tabela1.getSelectedRow() != -1) {
-            DefaultTableModel dtmCadastro = (DefaultTableModel) Tabela1.getModel();
-            dtmCadastro.removeRow(Tabela1.getSelectedRow());
+          if(jtTabela.getSelectedRow() != -1) {
+            DefaultTableModel dtmCadastro = (DefaultTableModel) jtTabela.getModel();
+            dtmCadastro.removeRow(jtTabela.getSelectedRow());
         } else {
             JOptionPane.showMessageDialog(null,"Selecione ao menos um cadastro");
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_removerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTable Tabela1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton atualizar;
+    private javax.swing.JButton busca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JTable jtTabela;
+    private javax.swing.JButton remover;
     // End of variables declaration//GEN-END:variables
 }

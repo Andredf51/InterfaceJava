@@ -303,7 +303,7 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
         // TODO add your handling code here:
-        if (jtTabela.getSelectedRow() != -1){
+            if (jtTabela.getSelectedRow() != -1){
             jtTabela.setValueAt(nome.getText(),jtTabela.getSelectedRow() , 0);
             jtTabela.setValueAt(celular.getText(),jtTabela.getSelectedRow() , 1);
             jtTabela.setValueAt(cpf.getText(),jtTabela.getSelectedRow() , 2);
