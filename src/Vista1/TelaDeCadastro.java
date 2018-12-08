@@ -7,6 +7,7 @@ package Vista1;
 
 import java.text.DecimalFormat;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Modelo1;
 
@@ -110,6 +111,11 @@ public class TelaDeCadastro extends javax.swing.JInternalFrame {
         jLabel7.setText("Pagamento:");
 
         Pagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "À Vista", "Cartão de Crédito", "Cartão de Débito", "Boleto", "Convênio" }));
+        Pagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PagamentoActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Serviço:");
 
@@ -284,6 +290,59 @@ public class TelaDeCadastro extends javax.swing.JInternalFrame {
     private void ValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ValorActionPerformed
+
+    private void PagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PagamentoActionPerformed
+    int valorConsulta = 0;
+        String[] options = {"1","2","3"};
+        String[] convenio = {"Amil Dental","Unimed","OdontoPrev","Outro"};
+        String formaPagamento = ((String) Pagamento.getSelectedItem());
+
+        System.out.println(formaPagamento);
+
+        if (formaPagamento.equals("Cartão de Crédito")) {
+            int parcelas = JOptionPane.showOptionDialog(null, "Parcelas? ", "Cartão Crédito", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, null);
+            if (parcelas == JOptionPane.YES_OPTION){
+                //valor.setValueAt(formaPagamento);
+                JOptionPane.showMessageDialog(null,"Pagamento em 1x");
+                valorConsulta = parcelas;
+            } else if (parcelas == JOptionPane.NO_OPTION){
+                JOptionPane.showMessageDialog(null,"Pagamento em 2x");
+                valorConsulta = parcelas;
+            }
+            else if (parcelas == JOptionPane.CANCEL_OPTION){
+                JOptionPane.showMessageDialog(null,"Pagamento em 3x");
+                valorConsulta = parcelas;
+            }
+            //            if (jtTabela.getSelectedRow() != -1){
+                //                jtTabela.setValueAt(valor.setText(Clareamento),jtTabela.getSelectedRow() , 7);
+                //            }
+//            Valor.setText(String.setValueOf(Clareamento));
+//            Valor.setText("");
+        }
+        if (formaPagamento.equals("Cartão de Débito")) {
+//            JOptionPane.showMessageDialog(null,"Pagamento será realizado");
+        }
+        if (formaPagamento.equals("À Vista")) {
+ //            JOptionPane.showMessageDialog(null,"Pagamento será efetuado");
+        }
+        if (formaPagamento.equals("Convênio")) {
+            int parcelas = JOptionPane.showOptionDialog(null, "Qual o convênio? ", "Convênio", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, convenio, null);
+            if (parcelas == JOptionPane.YES_OPTION){
+                JOptionPane.showMessageDialog(null,"Convênio Aceito");
+            } else if (parcelas == JOptionPane.NO_OPTION){
+                JOptionPane.showMessageDialog(null,"Convênio Aceito");
+            }
+            else if (parcelas == JOptionPane.CANCEL_OPTION){
+                JOptionPane.showMessageDialog(null,"Convênio Aceito");
+            } else if (parcelas == JOptionPane.CANCEL_OPTION+1){
+                JOptionPane.showMessageDialog(null,"Selecione outra forma de Pagamento");
+            }
+        }
+        if(formaPagamento.equals("Boleto")){
+            JOptionPane.showMessageDialog(null,"Será emitido");
+        }
+
+    }//GEN-LAST:event_PagamentoActionPerformed
 
     public void exportar(modelo.Modelo1 model){
         Total.setText(model.getNome());
