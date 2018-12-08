@@ -40,6 +40,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDesktopPane1.setBackground(new java.awt.Color(51, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista1/tooth.png"))); // NOI18N
         jLabel1.setText("Marcação de Consulta ADM");
 
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
