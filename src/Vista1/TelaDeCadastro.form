@@ -59,7 +59,6 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="181" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <Component id="Pagamento" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <Component id="Servico" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -69,6 +68,7 @@
                                   <Component id="Total" alignment="0" max="32767" attributes="0"/>
                                   <Component id="Valor" alignment="0" pref="61" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="Pagamento" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -234,14 +234,8 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="Pagamento">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="&#xc0; Vista"/>
-                <StringItem index="1" value="Cart&#xe3;o de Cr&#xe9;dito"/>
-                <StringItem index="2" value="Cart&#xe3;o de D&#xe9;bito"/>
-                <StringItem index="3" value="Boleto"/>
-                <StringItem index="4" value="Conv&#xea;nio"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Selecione a op&#xe7;&#xe3;o&quot;,&quot;&#xc0; Vista&quot;, &quot;Cart&#xe3;o de Cr&#xe9;dito&quot;, &quot;Cart&#xe3;o de D&#xe9;bito&quot;, &quot;Boleto&quot;, &quot;Conv&#xea;nio&quot; })" type="code"/>
             </Property>
           </Properties>
           <Events>
