@@ -41,7 +41,6 @@ public class Planilha extends javax.swing.JInternalFrame {
         jtTabela = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         busca = new javax.swing.JButton();
-        atualizar = new javax.swing.JButton();
         remover = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
@@ -65,13 +64,6 @@ public class Planilha extends javax.swing.JInternalFrame {
 
         busca.setText("Busca");
 
-        atualizar.setText("Atualizar");
-        atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizarActionPerformed(evt);
-            }
-        });
-
         remover.setText("Remover");
         remover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,8 +84,6 @@ public class Planilha extends javax.swing.JInternalFrame {
                 .addComponent(busca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102)
-                .addComponent(atualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(remover)
                 .addGap(21, 21, 21))
@@ -109,7 +99,6 @@ public class Planilha extends javax.swing.JInternalFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(busca)
-                    .addComponent(atualizar)
                     .addComponent(remover)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
@@ -136,21 +125,6 @@ public class Planilha extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
-//            if (jtTabela.getSelectedRow() != -1){
-//            jtTabela.setValueAt(nome.TelaDeCadastro.getText(),jtTabela.getSelectedRow() , 0);
-//            jtTabela.setValueAt(telefone.getText(),jtTabela.getSelectedRow() , 1);
-//            jtTabela.setValueAt(cpf.getText(),jtTabela.getSelectedRow() , 2);
-//            jtTabela.setValueAt(idade.getText(),jtTabela.getSelectedRow() , 3);
-//            jtTabela.setValueAt(data.getText(),jtTabela.getSelectedRow() , 4);
-//            jtTabela.setValueAt(pagamento.getSelectedItem(),jtTabela.getSelectedRow() , 5);
-//            jtTabela.setValueAt(servicos.getSelectedItem(),jtTabela.getSelectedRow() , 6);
-//            jtTabela.setValueAt(Valor.getText(),jtTabela.getSelectedRow() , 7);
-//            jtTabela.setValueAt(Total.getText(),jtTabela.getSelectedRow() , 8);
-//            jtTabela.setValueAt(obs.getText(),jtTabela.getSelectedRow() , 9);  
-//        }
-    }//GEN-LAST:event_atualizarActionPerformed
-
     private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
         // TODO add your handling code here:
           if(jtTabela.getSelectedRow() != -1) {
@@ -163,7 +137,6 @@ public class Planilha extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton atualizar;
     private javax.swing.JButton busca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
