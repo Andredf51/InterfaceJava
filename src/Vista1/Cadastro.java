@@ -1,5 +1,6 @@
 package Vista1;
 
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,15 +28,15 @@ public class Cadastro extends javax.swing.JFrame {
         cpf = new javax.swing.JFormattedTextField();
         idade = new javax.swing.JFormattedTextField();
         data = new javax.swing.JFormattedTextField();
-        pagamento = new javax.swing.JTextField();
         servicos = new javax.swing.JComboBox<>();
-        valor = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         obs = new javax.swing.JTextArea();
         cadastrar = new javax.swing.JButton();
         remover = new javax.swing.JButton();
         atualizar = new javax.swing.JButton();
+        pagamento = new javax.swing.JComboBox<>();
+        Valor = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTabela = new javax.swing.JTable();
@@ -79,6 +80,11 @@ public class Cadastro extends javax.swing.JFrame {
         }
 
         servicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione opção", "clareamento", "aparelho", "raio-x", "cirurgia" }));
+        servicos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                servicosItemStateChanged(evt);
+            }
+        });
 
         jLabel9.setText("obs");
 
@@ -107,6 +113,20 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        pagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione pagamento", "Boleto", "À vista", "Cartão de crédito", "Cartão de débito", "Convênio"}));
+        pagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pagamentoActionPerformed(evt);
+            }
+        });
+
+        Valor.setText("0");
+        Valor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ValorKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,15 +150,16 @@ public class Cadastro extends javax.swing.JFrame {
                                         .addComponent(nome, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(pagamento)
-                            .addComponent(servicos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(valor)
-                            .addComponent(jLabel9)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pagamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel8)
+                                .addComponent(servicos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                            .addComponent(Valor, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cadastrar)
@@ -172,9 +193,9 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cpf)
+                    .addComponent(Valor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -266,7 +287,7 @@ public class Cadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         DefaultTableModel dtmCadastro = (DefaultTableModel) jtTabela.getModel();
-        Object[] dados = {nome.getText(), celular.getText(), cpf.getText(), idade.getText(), data.getText(), pagamento.getText(), servicos.getSelectedItem(), valor.getText(), obs.getText()};
+        Object[] dados = {nome.getText(), celular.getText(), cpf.getText(), idade.getText(), data.getText(), pagamento.getSelectedItem(), servicos.getSelectedItem(), Valor.getText(), obs.getText()};
         dtmCadastro.addRow(dados);
     }//GEN-LAST:event_cadastrarActionPerformed
 
@@ -288,9 +309,9 @@ public class Cadastro extends javax.swing.JFrame {
             jtTabela.setValueAt(cpf.getText(),jtTabela.getSelectedRow() , 2);
             jtTabela.setValueAt(idade.getText(),jtTabela.getSelectedRow() , 3);
             jtTabela.setValueAt(data.getText(),jtTabela.getSelectedRow() , 4);
-            jtTabela.setValueAt(pagamento.getText(),jtTabela.getSelectedRow() , 5);
+            jtTabela.setValueAt(pagamento.getSelectedItem(),jtTabela.getSelectedRow() , 5);
             jtTabela.setValueAt(servicos.getSelectedItem(),jtTabela.getSelectedRow() , 6);
-            jtTabela.setValueAt(valor.getText(),jtTabela.getSelectedRow() , 7);
+            jtTabela.setValueAt(Valor.getText(),jtTabela.getSelectedRow() , 7);
             jtTabela.setValueAt(obs.getText(),jtTabela.getSelectedRow() , 8);
             
         }
@@ -304,9 +325,9 @@ public class Cadastro extends javax.swing.JFrame {
             cpf.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 2).toString());
             idade.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 3).toString());
             data.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 4).toString());
-            pagamento.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 5).toString());
+            pagamento.setSelectedItem(jtTabela.getValueAt(jtTabela.getSelectedRow(), 5).toString());
             servicos.setSelectedItem(jtTabela.getValueAt(jtTabela.getSelectedRow(), 6).toString());
-            valor.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 7).toString());
+            Valor.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 7).toString());
             obs.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 8).toString());
         }
     }//GEN-LAST:event_jtTabelaMouseClicked
@@ -319,13 +340,106 @@ public class Cadastro extends javax.swing.JFrame {
             cpf.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 2).toString());
             idade.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 3).toString());
             data.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 4).toString());
-            pagamento.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 5).toString());
+            pagamento.setSelectedItem(jtTabela.getValueAt(jtTabela.getSelectedRow(), 5).toString());
             servicos.setSelectedItem(jtTabela.getValueAt(jtTabela.getSelectedRow(), 6).toString());
-            valor.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 7).toString());
+            Valor.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 7).toString());
             obs.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 8).toString());
         }
     }//GEN-LAST:event_jtTabelaKeyReleased
 
+    private void pagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagamentoActionPerformed
+        // TODO add your handling code here:
+        int valorConsulta = 0;
+        calcularTotal();
+        String[] options = {"1","2","3"};
+        String[] convenio = {"Amil Dental","Unimed","OdontoPrev","Outro"};
+        String formaPagamento = ((String) pagamento.getSelectedItem());
+
+        System.out.println(formaPagamento);
+
+        if (formaPagamento.equals("Cartão de crédito")) {
+            int parcelas = JOptionPane.showOptionDialog(null, "Parcelas? ", "Cartão Crédito", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, null);
+            if (parcelas == JOptionPane.YES_OPTION){
+                //valor.setValueAt(formaPagamento);
+                JOptionPane.showMessageDialog(null,"Pagamento em 1x");
+                valorConsulta = parcelas;
+            } else if (parcelas == JOptionPane.NO_OPTION){
+                JOptionPane.showMessageDialog(null,"Pagamento em 2x");
+                valorConsulta = parcelas;
+            }
+            else if (parcelas == JOptionPane.CANCEL_OPTION){
+                JOptionPane.showMessageDialog(null,"Pagamento em 3x");
+                valorConsulta = parcelas;
+            }
+            //            if (jtTabela.getSelectedRow() != -1){
+                //                jtTabela.setValueAt(valor.setText(Clareamento),jtTabela.getSelectedRow() , 7);
+                //            }
+//            Valor.setText(String.setValueOf(Clareamento));
+//            Valor.setText("");
+        }
+        if (formaPagamento.equals("Cartão de Débito")) {
+//            JOptionPane.showMessageDialog(null,"Pagamento será realizado");
+        }
+        if (formaPagamento.equals("À vista")) {
+ //            JOptionPane.showMessageDialog(null,"Pagamento será efetuado");
+        }
+        if (formaPagamento.equals("Convênio")) {
+            int parcelas = JOptionPane.showOptionDialog(null, "Qual o convênio? ", "Convênio", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, convenio, null);
+            if (parcelas == JOptionPane.YES_OPTION){
+                JOptionPane.showMessageDialog(null,"Convênio Aceito");
+            } else if (parcelas == JOptionPane.NO_OPTION){
+                JOptionPane.showMessageDialog(null,"Convênio Aceito");
+            }
+            else if (parcelas == JOptionPane.CANCEL_OPTION){
+                JOptionPane.showMessageDialog(null,"Convênio Aceito");
+            } else if (parcelas == JOptionPane.CANCEL_OPTION+1){
+                JOptionPane.showMessageDialog(null,"Selecione outra forma de Pagamento");
+            }
+        }
+
+    }//GEN-LAST:event_pagamentoActionPerformed
+
+    private void ValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ValorKeyTyped
+     // TODO add your handling code here:
+        if(evt.getKeyChar() == '\n') {
+            calcularTotal();
+        }
+    }//GEN-LAST:event_ValorKeyTyped
+
+    private void servicosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_servicosItemStateChanged
+        // TODO add your handling code here:
+        calcularTotal();
+    }//GEN-LAST:event_servicosItemStateChanged
+
+    public void calcularTotal() { //caso de um item selecionado
+        double valor = 0;
+        String servico = (String)servicos.getSelectedItem();
+        switch(servico) {
+            case "Consulta":
+                valor+= 100;
+                break;
+            case "Limpeza":
+                valor+= 130;
+                break;
+            case "Clareamento":
+                valor+= 450;
+                break;
+            case "Aparelho":
+                valor+= 100;
+                break;
+            case "Raio-x":
+                valor+= 80;
+                break;
+            case "Cirurgia":
+                valor+= 70;//dúvida no uso
+                break;
+        }
+        if(!Valor.getText().equals("")) {
+            valor += Double.parseDouble(Valor.getText());
+        } 
+        DecimalFormat df = new DecimalFormat("R$ #,###.00"); //mascara para formatação do resultado da soma
+        Valor.setText(df.format(valor));
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -359,6 +473,7 @@ public class Cadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Valor;
     private javax.swing.JButton atualizar;
     private javax.swing.JButton cadastrar;
     private javax.swing.JFormattedTextField celular;
@@ -381,9 +496,8 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JTable jtTabela;
     private javax.swing.JTextField nome;
     private javax.swing.JTextArea obs;
-    private javax.swing.JTextField pagamento;
+    private javax.swing.JComboBox<String> pagamento;
     private javax.swing.JButton remover;
     private javax.swing.JComboBox<String> servicos;
-    private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
 }

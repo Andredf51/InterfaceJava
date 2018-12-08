@@ -5,6 +5,8 @@
  */
 package Vista1;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.Modelo1;
 
 /**
@@ -64,8 +66,18 @@ public class Planilha extends javax.swing.JInternalFrame {
         jButton1.setText("Busca");
 
         jButton2.setText("Atualizar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Remover");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,6 +135,20 @@ public class Planilha extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+          if(Tabela1.getSelectedRow() != -1) {
+            DefaultTableModel dtmCadastro = (DefaultTableModel) Tabela1.getModel();
+            dtmCadastro.removeRow(Tabela1.getSelectedRow());
+        } else {
+            JOptionPane.showMessageDialog(null,"Selecione ao menos um cadastro");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

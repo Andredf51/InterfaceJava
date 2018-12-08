@@ -123,6 +123,11 @@ public class TelaDeCadastro extends javax.swing.JInternalFrame {
         jLabel9.setText("Valor Cirurgia:");
 
         Valor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        Valor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ValorActionPerformed(evt);
+            }
+        });
         Valor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ValorKeyTyped(evt);
@@ -275,6 +280,10 @@ public class TelaDeCadastro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         calcularTotal();
     }//GEN-LAST:event_ServicoItemStateChanged
+
+    private void ValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ValorActionPerformed
 
     public void exportar(modelo.Modelo1 model){
         Total.setText(model.getNome());
