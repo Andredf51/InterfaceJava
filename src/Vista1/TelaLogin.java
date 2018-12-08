@@ -9,8 +9,10 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author andre
+ * Marcação de Consultas Odontológicas e controle de informações do usuário
+ * @since 08/12/2018
+ * @version 1.0
+ * @author André Luiz, Douglas Shibata & Marcos Allysson
  */
 public class TelaLogin extends javax.swing.JFrame {
 

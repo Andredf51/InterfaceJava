@@ -3,7 +3,12 @@ package Vista1;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ * Marcação de Consultas Odontológicas e controle de informações do usuário
+ * @since 08/12/2018
+ * @version 1.0
+ * @author André Luiz, Douglas Shibata & Marcos Allysson
+ */
 public class Cadastro extends javax.swing.JFrame {
 
     public Cadastro() {
@@ -284,15 +289,14 @@ public class Cadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        // TODO add your handling code here:
-        
+        // Botão cadastrar
         DefaultTableModel dtmCadastro = (DefaultTableModel) jtTabela.getModel();
-        Object[] dados = {nome.getText(), celular.getText(), cpf.getText(), idade.getText(), data.getText(), pagamento.getSelectedItem(), servicos.getSelectedItem(), Valor.getText(), obs.getText()};
+        Object[] dados = {nome.getText(), celular.getText(), cpf.getText(), idade.getText(), data.getText(), pagamento.getSelectedItem(), servicos.getSelectedItem(), Valor.getText(), obs.getText()};//Recebe os dados do formulário
         dtmCadastro.addRow(dados);
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
-        // TODO add your handling code here:
+        // Botão Remover item da lista
         if(jtTabela.getSelectedRow() != -1) {
             DefaultTableModel dtmCadastro = (DefaultTableModel) jtTabela.getModel();
             dtmCadastro.removeRow(jtTabela.getSelectedRow());
@@ -302,7 +306,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_removerActionPerformed
 
     private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
-        // TODO add your handling code here:
+        // Botão atualiza os algum campo selecionado do formulário
             if (jtTabela.getSelectedRow() != -1){
             jtTabela.setValueAt(nome.getText(),jtTabela.getSelectedRow() , 0);
             jtTabela.setValueAt(celular.getText(),jtTabela.getSelectedRow() , 1);
@@ -318,7 +322,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_atualizarActionPerformed
 
     private void jtTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTabelaMouseClicked
-        // TODO add your handling code here:
+        
         if (jtTabela.getSelectedRow() != -1){
             nome.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 0).toString());
             celular.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 1).toString());
@@ -333,8 +337,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jtTabelaMouseClicked
 
     private void jtTabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTabelaKeyReleased
-        // TODO add your handling code here:
-        if (jtTabela.getSelectedRow() != -1){
+       if (jtTabela.getSelectedRow() != -1){
             nome.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 0).toString());
             celular.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 1).toString());
             cpf.setText(jtTabela.getValueAt(jtTabela.getSelectedRow(), 2).toString());
@@ -348,7 +351,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jtTabelaKeyReleased
 
     private void pagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagamentoActionPerformed
-        // TODO add your handling code here:
+        // Seleciona o método de pagamento do cliente.
         int valorConsulta = 0;
         calcularTotal();
         String[] options = {"1","2","3"};
@@ -400,7 +403,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_pagamentoActionPerformed
 
     private void ValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ValorKeyTyped
-     // TODO add your handling code here:
+     // Gera o valor após pressionado 
         if(evt.getKeyChar() == '\n') {
             calcularTotal();
         }

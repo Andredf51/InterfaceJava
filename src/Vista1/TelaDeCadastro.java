@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista1;
 
 import java.text.DecimalFormat;
@@ -12,8 +8,10 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Modelo1;
 
 /**
- *
- * @author andre
+ * Marcação de Consultas Odontológicas e controle de informações do usuário
+ * @since 08/12/2018
+ * @version 1.0
+ * @author André Luiz, Douglas Shibata & Marcos Allysson
  */
 public class TelaDeCadastro extends javax.swing.JInternalFrame {
     JDesktopPane jDesktopPane;
@@ -261,7 +259,7 @@ public class TelaDeCadastro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-
+        //Botão cadastrar o usuário
         Modelo1 model = new Modelo1();  //usar a class, model variável
         model.setNome(nome.getText()); //pegar o texto
         Plan1.setVisible(true); //deixar visivel
@@ -292,7 +290,8 @@ public class TelaDeCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ValorActionPerformed
 
     private void pagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagamentoActionPerformed
-    int valorConsulta = 0;
+        // Área onde é selecionado o método de pagamento que o usuário desejar
+        int valorConsulta = 0;
         String[] options = {"1","2","3"};
         String[] convenio = {"Amil Dental","Unimed","OdontoPrev","Outro"};
         String formaPagamento = ((String) pagamento.getSelectedItem());

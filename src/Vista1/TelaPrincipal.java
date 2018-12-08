@@ -3,8 +3,10 @@ package Vista1;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author andre
+ * Marcação de Consultas Odontológicas e controle de informações do usuário
+ * @since 08/12/2018
+ * @version 1.0
+ * @author André Luiz, Douglas Shibata & Marcos Allysson
  */
 public class TelaPrincipal extends javax.swing.JFrame {
         Planilha Plan1 = new Planilha();
@@ -132,20 +134,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       //Item do menu Arquivo que chama novo cadastro. E é gerada uma janela
        TelaDeCadastro TelaCad = new TelaDeCadastro(jDesktopPane1, Plan1);
        jDesktopPane1.add(TelaCad); //colocar dentro da tela principal
        TelaCad.setVisible(true); //mostrar na tela principal
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-
+        // Item do menu arquivo que chama consultar planilha. E mostra a planilha com os dados que foram inseridos pelo usuário
         jDesktopPane1.add(Plan1);
         Plan1.setVisible(true);
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        // Item do menu Sobre que mostra as informações sobre a versão do programa desenvolvido
         JOptionPane.showMessageDialog(this,"Marcação de Consulta Odontológica \n -- Versão 1.0 -- \n Desenvolvido por ADM");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 

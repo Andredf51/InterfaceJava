@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista1;
 
 import javax.swing.JOptionPane;
@@ -10,8 +6,10 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Modelo1;
 
 /**
- *
- * @author andre
+ * Marcação de Consultas Odontológicas e controle de informações do usuário
+ * @since 08/12/2018
+ * @version 1.0
+ * @author André Luiz, Douglas Shibata & Marcos Allysson
  */
 public class Planilha extends javax.swing.JInternalFrame {
 
@@ -126,8 +124,8 @@ public class Planilha extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
-        // TODO add your handling code here:
-          if(jtTabela.getSelectedRow() != -1) {
+        //Botão remover a linha selecionada da tabela
+        if(jtTabela.getSelectedRow() != -1) {
             DefaultTableModel dtmCadastro = (DefaultTableModel) jtTabela.getModel();
             dtmCadastro.removeRow(jtTabela.getSelectedRow());
         } else {
