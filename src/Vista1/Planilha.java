@@ -3,6 +3,7 @@ package Vista1;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import modelo.Modelo1;
 
 /**
@@ -18,6 +19,10 @@ public class Planilha extends javax.swing.JInternalFrame {
      */
     public Planilha() {
         initComponents();
+        
+        //ordenação da tabela
+        DefaultTableModel Ordenar = (DefaultTableModel)jtTabela.getModel();
+        jtTabela.setRowSorter(new TableRowSorter(Ordenar));
     }
     
     //medodo para colacar os dados
